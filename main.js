@@ -18,6 +18,7 @@ Promise.all(TRACKER_LIST_URL_ARRAY.map(loadNormalList))
             fs.mkdirSync('dist');
         }
         fs.writeFileSync('./dist/index.txt', htmlContent);
+        console.log('write file done')
     })
 
 

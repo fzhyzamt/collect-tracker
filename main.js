@@ -14,7 +14,10 @@ const TRACKER_LIST_URL_ARRAY = [
 Promise.all(TRACKER_LIST_URL_ARRAY.map(loadNormalList))
     .then(trackerListArray => {
         const htmlContent = `${trackerListArray.join('\n')}`;
-        fs.writeFileSync('index.txt', htmlContent);
+        if (!fs.existsSync('dist')) {
+            fs.mkdirSync('dist');
+        }
+        fs.writeFileSync('./dist/index.txt', htmlContent);
     })
 
 
